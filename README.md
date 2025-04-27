@@ -45,8 +45,8 @@ Content-Type: application/json
 
 {
   "time_window": 1,
-  "max_requests": 100,
-  "blocked_duration": 600
+  "max_requests": 10,
+  "blocked_duration": 60
 }
 ```
 

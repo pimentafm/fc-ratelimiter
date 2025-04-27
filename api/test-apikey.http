@@ -1,4 +1,4 @@
 GET http://127.0.0.1:8080/hello-world-key
 Content-Type: application/json
-API_KEY: 263b3bd80f0e7c9b4daceb4da8b2ef62d8c703b2f53bd924efdf79c3251a83ef
+API_KEY: 8c93b893d1e655e171ea176e8f13880669a82c3a3683a061a19d287f38b716e0
 ###
