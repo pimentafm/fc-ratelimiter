@@ -1,0 +1,13 @@
+FROM golang:1.23.8-bookworm AS builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN make init && make build-cli
+
+FROM scratch
+
+COPY --from=builder /app/cli-test .
+
+ENTRYPOINT ["./cli-test"]

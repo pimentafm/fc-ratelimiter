@@ -31,6 +31,10 @@ Key parameters:
 - `max_requests`: Maximum requests allowed within the `time_window`. For example, 10 requests per 1 second.
 - `blocked_duration`: Duration in **seconds** that an IP is blocked after exceeding the limit.
 
+## Launching the Application
+
+`make run` to spin up applications.
+
 ### API Token Setup
 
 To generate an API token, send the following HTTP request:
@@ -60,12 +64,8 @@ curl -s \
 ```
 
 Each token can have its own unique configuration.
+You can use `.http` files on `api/` to test endpoints
 
-## Launching the Application
-
-1. Run `make prepare` to set up the default configuration.
-2. Optionally, modify the `env.json` file with your preferred settings.
-3. Start the application with `make run`, which initializes the containers defined in `docker-compose.yaml`.
 
 ## Redis Database Structure
 
@@ -130,7 +130,7 @@ The Redis database stores keys for rate limiting, visualized using [🔗 Redis I
 To explore the testing CLI, run:
 
 ```shell
-docker compose run --rm go-cli-test -h
+docker compose run --rm go-cli -h
 ```
 
 Output:
@@ -153,7 +153,7 @@ Usage of ./cli-test:
 Run the following command:
 
 ```shell
-docker compose run --rm go-cli-test -url http://go-app:8080/hello-world -m GET -t 1 -r 10
+docker compose run --rm go-cli -url http://go-app:8080/hello-world -m GET -t 1 -r 10
 ```
 
 ### Testing with API Key
@@ -183,7 +183,7 @@ curl -s \
 ```shell
 docker compose run \
   --rm \
-  go-cli-test \
+  go-cli \
   -url http://go-app:8080/hello-world-key \
   -m GET \
   -t 1 \

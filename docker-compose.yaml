@@ -26,5 +26,17 @@ services:
       redis:
         condition: service_healthy
 
+  go-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile-cli
+    image: go-cli
+    container_name: go-cli
+    networks:
+      - rate-limit
+    depends_on:
+      redis:
+        condition: service_healthy
+
 networks:
   rate-limit:
